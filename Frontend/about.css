@@ -144,6 +144,7 @@ body {
     0 0 0 1px rgba(255, 255, 255, 0.05) inset,
     0 0 18px rgba(71, 131, 211, 0.28),
     0 0 40px rgba(26, 62, 112, 0.16);
+    -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   transition:
     transform 0.22s ease,
@@ -591,9 +592,8 @@ body {
   padding: -100px 0;
   background: rgba(0, 0, 0, 0.55); /* translucent */
   -webkit-backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
   box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
 
   transition:
@@ -2092,5 +2092,236 @@ body {
   .site-footer-social {
     width: 40px;
     height: 40px;
+  }
+}
+
+
+/* =========================
+   PROJECT HERO (VIDEO)
+========================= */
+.project-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.project-hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.project-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* Centered Content */
+.project-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.project-number {
+  display: block;
+  font-size: clamp(18px, 2vw, 24px);
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.project-title {
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 800;
+  letter-spacing: 6px;
+}
+
+
+/* =========================
+   WHY WORK SECTION (REUSED)
+========================= */
+.why-work-with-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(60px, 8vw, 120px);
+  position: relative;
+  overflow: hidden;
+  gap: 60px;
+  background: #000;
+  color: #fff;
+}
+
+.why-work-with-us::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.55) 0.32px, transparent 0.55px);
+  background-size: 22px 22px;
+}
+
+.why-work-content {
+  flex: 0 0 40%;
+  max-width: 500px;
+  z-index: 1;
+}
+
+.why-work-content h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  margin-bottom: 24px;
+}
+
+.why-work-content ul {
+  list-style: none;
+  padding: 0;
+  font-size: clamp(18px, 2.5vw, 22px);
+  line-height: 1.8;
+}
+
+.why-work-content li {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.why-work-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+}
+
+/* Images */
+.why-work-images {
+  flex: 0 0 35%;
+  z-index: 1;
+}
+
+.image-container {
+  display: flex;
+  gap: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.col-left img,
+.col-right img {
+  width: 200px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.col-middle img {
+  width: 200px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.why-work-images img {
+  border-radius: 0;
+  transition: transform 0.4s ease;
+}
+
+.why-work-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Show desktop video by default */
+.video-mobile {
+  display: none;
+}
+
+/* Switch on mobile */
+@media (max-width: 768px) {
+  .video-desktop {
+    display: none;
+  }
+
+  .video-mobile {
+    display: block;
+  }
+}
+
+
+/* =========================
+   IMAGE HERO VERSION
+========================= */
+
+.project-hero-image {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.project-hero-image .hero-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Default: show desktop image */
+.mobile-img {
+  display: none;
+}
+
+/* Mobile switch */
+@media (max-width: 768px) {
+  .desktop-img {
+    display: none;
+  }
+
+  .mobile-img {
+    display: block;
+  }
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+
+  .project-title {
+    font-size: clamp(36px, 12vw, 64px);
+  }
+
+  .why-work-with-us {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .why-work-content {
+    max-width: 100%;
+  }
+
+  .image-container {
+    justify-content: center;
+  }
+
+  .col-left img,
+  .col-right img {
+    width: 100px;
+    height: 300px;
+  }
+
+  .col-middle img {
+    width: 120px;
+    height: 200px;
   }
 }

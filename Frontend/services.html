@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deusdeus</title>
+  <title>Services | DeusDeus</title>
+  <meta name="description" content="Explore DeusDeus services including media production, brand storytelling, content creation, campaign production, and creative direction for modern brands." />
+  <meta name="keywords" content="DeusDeus services, media production, content creation, brand storytelling, campaign production, creative direction" />
+  <meta name="author" content="DeusDeus" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://deusdeus.org/services" />
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services | DeusDeus" />
+  <meta property="og:description" content="Discover our creative services including media production, storytelling, and campaign execution." />
+  <meta property="og:image" content="https://deusdeus.org/images/dlogo2.png" />
+  <meta property="og:url" content="https://deusdeus.org/services" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Services | DeusDeus" />
+  <meta name="twitter:description" content="Creative services for brands: production, storytelling, and campaigns." />
+  <meta name="twitter:image" content="https://deusdeus.org/images/dlogo2.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="DeusDeus" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- SEO Files -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,11 +49,14 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-/>
 
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="index.min.css" />
 </head>
 <body>
@@ -583,49 +623,6 @@
 </section>
 
 <section class="pricing-section" id="pricing">
-  <div class="pricing-inner">
-
-    <h2 class="pricing-title">Our Pricing Models</h2>
-    <p class="pricing-intro">
-      Explore flexible options to collaborate with DeusDeus, designed to suit both pilot and ongoing projects.
-    </p>
-
-    <div class="pricing-cards">
-
-      <!-- Pilot Projects -->
-      <div class="pricing-card">
-        <h3 class="pricing-card-title">Pilot Projects</h3>
-        <p class="pricing-card-desc">
-          For brands exploring collaboration, we offer one-time pilot projects. Pilot projects allow brands to:
-        </p>
-        <ul class="pricing-card-list">
-          <li>Test creative direction</li>
-          <li>Evaluate production quality</li>
-          <li>Generate usable marketing content</li>
-        </ul>
-        <p class="pricing-card-range">
-          Pricing: <span>KES 40,000 – 80,000</span> depending on scope
-        </p>
-      </div>
-
-      <!-- Monthly Content Partnerships -->
-      <div class="pricing-card">
-        <h3 class="pricing-card-title">Monthly Content Partnerships</h3>
-        <p class="pricing-card-desc">
-          For brands requiring consistent storytelling, we offer structured monthly subscriptions. Typical deliverables include:
-        </p>
-        <ul class="pricing-card-list">
-          <li>Brand hero videos</li>
-          <li>Short-form content</li>
-          <li>Campaign visuals</li>
-          <li>Product photography</li>
-        </ul>
-        <p class="pricing-card-range">
-          Pricing: <span>KES 35,000 – 150,000</span> depending on scale
-        </p>
-      </div>
-
-    </div>
 
     <!-- CTA Button -->
     <div class="pricing-cta">
@@ -703,72 +700,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const targets = document.querySelectorAll(".creative-shuffle");
-
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-  function shuffleText(el) {
-    const finalText = el.dataset.text || el.textContent.trim();
-    let iteration = 0;
-
-    clearInterval(el._shuffleInterval);
-
-    el._shuffleInterval = setInterval(() => {
-      el.textContent = finalText
-        .split("")
-        .map((char, index) => {
-          if (char === " ") return " ";
-          if (index < iteration) return finalText[index];
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
-
-      iteration += 1 / 3;
-
-      if (iteration >= finalText.length) {
-        clearInterval(el._shuffleInterval);
-        el.textContent = finalText;
-      }
-    }, 90);
-  }
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          shuffleText(entry.target);
-
-          const start = performance.now();
-          const duration = 1500; 
-          const original =
-            entry.target.dataset.text ||
-            entry.target.textContent.trim();
-
-          function rerun(now) {
-            if (now - start < duration) {
-              shuffleText(entry.target);
-              setTimeout(() => requestAnimationFrame(rerun), 400);
-            } else {
-              entry.target.textContent = original;
-            }
-          }
-
-          requestAnimationFrame(rerun);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.25
-    }
-  );
-
-  targets.forEach((target) => observer.observe(target));
-});
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {

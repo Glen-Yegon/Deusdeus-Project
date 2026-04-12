@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deusdeus.org/sitemap.xml
