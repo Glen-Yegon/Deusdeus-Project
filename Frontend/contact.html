@@ -176,7 +176,7 @@
 
         <div class="contact-split__item">
           <span class="contact-split__meta">Instagram</span>
-          <a href="https://instagram.com/deusdeus" target="_blank" rel="noopener" class="contact-split__link">
+          <a href="https://www.instagram.com/deuz.deus?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="contact-split__link">
             @deuz.deuz
           </a>
         </div>
@@ -245,7 +245,7 @@
         </a>
 
         <a
-          href="https://www.instagram.com/"
+          href="https://www.instagram.com/deuz.deus?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
           rel="noopener noreferrer"
           class="site-footer-social"
@@ -434,6 +434,66 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeroFade();
   window.addEventListener("scroll", requestTick, { passive: true });
   window.addEventListener("resize", requestTick);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector(".contact-split__form");
+  const submitBtn = document.querySelector(".contact-split__submit");
+
+  const phoneNumber = "254758647031";
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (submitBtn.disabled) return;
+
+    const name = document.getElementById("contact-name").value.trim();
+    const email = document.getElementById("contact-email").value.trim();
+    const message = document.getElementById("contact-message").value.trim();
+
+    if (!name || !email || !message) {
+      alert("Please complete all fields to continue.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    const fullMessage = `
+🎬 NEW PROJECT BRIEF
+
+👤 Client Name:
+${name}
+
+📧 Contact Email:
+${email}
+
+🧾 Project Details:
+${message}
+
+──────────────
+Sent via DeusDeus Creative Contact Form
+`.trim();
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
+
+    setTimeout(() => {
+      window.open(url, "_blank");
+
+      form.reset();
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+    }, 500);
+  });
 });
 </script>
 
