@@ -39,7 +39,8 @@
   ],
 
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
+    { "source": "/index", "destination": "/index.html" },
+
     { "source": "/about", "destination": "/about.html" },
     { "source": "/main", "destination": "/main.html" },
     { "source": "/buy", "destination": "/buy.html" },
@@ -65,6 +66,9 @@
   ],
 
   "redirects": [
+    { "source": "/", "destination": "/index", "permanent": true },
+    { "source": "/index.html", "destination": "/index", "permanent": true },
+
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/main.html", "destination": "/main", "permanent": true },
     { "source": "/buy.html", "destination": "/buy", "permanent": true },
