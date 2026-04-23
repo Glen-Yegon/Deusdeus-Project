@@ -27,5 +27,13 @@
     { "source": "/projects", "destination": "/projects.html" },
     { "source": "/services", "destination": "/services.html" },
     { "source": "/contact", "destination": "/contact.html" }
+  ],
+
+  "redirects": [
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/projects.html", "destination": "/projects", "permanent": true },
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/index.html", "destination": "/", "permanent": true }
   ]
 }
