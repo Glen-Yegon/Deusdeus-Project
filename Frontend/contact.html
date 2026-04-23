@@ -442,9 +442,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-split__form");
   const submitBtn = document.querySelector(".contact-split__submit");
 
-  const phoneNumber = "254758647031";
+  // Success popup (black & white)
+  const popup = document.createElement("div");
+  popup.innerHTML = "Message sent successfully";
+  Object.assign(popup.style, {
+    position: "fixed",
+    bottom: "30px",
+    right: "30px",
+    background: "#111",
+    color: "#fff",
+    padding: "14px 18px",
+    borderRadius: "6px",
+    fontFamily: "Arial",
+    fontSize: "13px",
+    opacity: "0",
+    transition: "0.3s",
+    zIndex: "9999"
+  });
+  document.body.appendChild(popup);
 
-  form.addEventListener("submit", function (e) {
+  function showPopup() {
+    popup.style.opacity = "1";
+    setTimeout(() => popup.style.opacity = "0", 2500);
+  }
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     if (submitBtn.disabled) return;
@@ -454,45 +476,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const message = document.getElementById("contact-message").value.trim();
 
     if (!name || !email || !message) {
-      alert("Please complete all fields to continue.");
+      alert("Please complete all fields.");
       return;
     }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      alert("Please enter a valid email address.");
+      alert("Enter a valid email.");
       return;
     }
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
 
-    const fullMessage = `
-🎬 NEW PROJECT BRIEF
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
 
-👤 Client Name:
-${name}
+      if (res.ok) {
+        form.reset();
+        showPopup();
+      } else {
+        alert("Failed to send message.");
+      }
 
-📧 Contact Email:
-${email}
+    } catch (err) {
+      alert("Something went wrong.");
+    }
 
-🧾 Project Details:
-${message}
-
-──────────────
-Sent via DeusDeus Creative Contact Form
-`.trim();
-
-    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(fullMessage)}`;
-
-    setTimeout(() => {
-      window.open(url, "_blank");
-
-      form.reset();
-
-      submitBtn.disabled = false;
-      submitBtn.textContent = "Send Message";
-    }, 500);
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Send Message";
   });
 });
 </script>
