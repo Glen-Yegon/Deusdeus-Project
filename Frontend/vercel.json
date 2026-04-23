@@ -1,95 +1,31 @@
 {
   "headers": [
     {
-      "source": "/mains/:file*",
+      "source": "/images/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
-      "source": "/shoot/:file*",
+      "source": "/videos/:path*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/items/:file*",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/graphics/:file*",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/cloth/:file*",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/assets/:file*",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ],
 
   "rewrites": [
-    { "source": "/index", "destination": "/index.html" },
+    { "source": "/", "destination": "/index.html" },
 
     { "source": "/about", "destination": "/about.html" },
-    { "source": "/main", "destination": "/main.html" },
-    { "source": "/buy", "destination": "/buy.html" },
-    { "source": "/buy2", "destination": "/buy2.html" },
-    { "source": "/buy3", "destination": "/buy3.html" },
-    { "source": "/product", "destination": "/product.html" },
-    { "source": "/capes", "destination": "/capes.html" },
-    { "source": "/cart", "destination": "/cart.html" },
-    { "source": "/customization", "destination": "/customization.html" },
-    { "source": "/flee", "destination": "/flee.html" },
-    { "source": "/glasses", "destination": "/glasses.html" },
-    { "source": "/guide", "destination": "/guide.html" },
-    { "source": "/item", "destination": "/item.html" },
-    { "source": "/our-story", "destination": "/our-story.html" },
-    { "source": "/pants", "destination": "/pants.html" },
-    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
-    { "source": "/request", "destination": "/request.html" },
-    { "source": "/shipping", "destination": "/shipping.html" },
-    { "source": "/sign", "destination": "/sign.html" },
-    { "source": "/tee", "destination": "/tee.html" },
-    { "source": "/terms-and-conditions", "destination": "/terms-and-conditions.html" },
-    { "source": "/tops", "destination": "/tops.html" }
-  ],
-
-  "redirects": [
-    { "source": "/", "destination": "/index", "permanent": true },
-    { "source": "/index.html", "destination": "/index", "permanent": true },
-
-    { "source": "/about.html", "destination": "/about", "permanent": true },
-    { "source": "/main.html", "destination": "/main", "permanent": true },
-    { "source": "/buy.html", "destination": "/buy", "permanent": true },
-    { "source": "/buy2.html", "destination": "/buy2", "permanent": true },
-    { "source": "/buy3.html", "destination": "/buy3", "permanent": true },
-    { "source": "/product.html", "destination": "/product", "permanent": true },
-    { "source": "/capes.html", "destination": "/capes", "permanent": true },
-    { "source": "/cart.html", "destination": "/cart", "permanent": true },
-    { "source": "/customization.html", "destination": "/customization", "permanent": true },
-    { "source": "/flee.html", "destination": "/flee", "permanent": true },
-    { "source": "/glasses.html", "destination": "/glasses", "permanent": true },
-    { "source": "/guide.html", "destination": "/guide", "permanent": true },
-    { "source": "/item.html", "destination": "/item", "permanent": true },
-    { "source": "/our-story.html", "destination": "/our-story", "permanent": true },
-    { "source": "/pants.html", "destination": "/pants", "permanent": true },
-    { "source": "/privacy-policy.html", "destination": "/privacy-policy", "permanent": true },
-    { "source": "/request.html", "destination": "/request", "permanent": true },
-    { "source": "/shipping.html", "destination": "/shipping", "permanent": true },
-    { "source": "/sign.html", "destination": "/sign", "permanent": true },
-    { "source": "/tee.html", "destination": "/tee", "permanent": true },
-    { "source": "/terms-and-conditions.html", "destination": "/terms-and-conditions", "permanent": true },
-    { "source": "/tops.html", "destination": "/tops", "permanent": true }
+    { "source": "/projects", "destination": "/projects.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/contact", "destination": "/contact.html" }
   ]
 }
